@@ -15,7 +15,8 @@ function(input, output, session) {
   hex_png <- sample(rep(hex_png, 2))
   
   results_mods <- reactiveValues()
-  results_mods_parse <- reactiveValues(all = NULL, show1 = NULL, show2 = NULL)
+  results_mods_parse <- reactiveValues(all = NULL, show1 = NULL, show2 = NULL, show3 = NULL)
+  reset <- reactiveValues(x = NULL)
   
   lapply(
     X = seq_len(n_hex * 2),
@@ -23,7 +24,8 @@ function(input, output, session) {
       results_mods[[paste0("module", x)]] <- callModule(
         module = hex,
         id = paste0("module", x),
-        hex_logo = hex_png[x]
+        hex_logo = hex_png[x],
+        reset = reset
       )
     }
   )
@@ -34,6 +36,13 @@ function(input, output, session) {
       FUN = reactiveValuesToList
     )
     results_mods_parse$all <- res_mod
+    results_mods_parse$show1 <- which_show(res_mod, 1)
+    results_mods_parse$show2 <- which_show(res_mod, 2)
+    results_mods_parse$show3 <- which_show(res_mod, 3)
+  })
+  
+  observeEvent(results_mods_parse$show3, {
+    reset$x <- Sys.time()
   })
   
   output$test_res <- renderPrint({

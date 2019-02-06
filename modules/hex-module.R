@@ -17,12 +17,16 @@ hex_UI <- function(id) {
   )
 }
 
-hex <- function(input, output, session, hex_logo) {
+hex <- function(input, output, session, hex_logo, reset = reactiveValues(x = NULL)) {
   
   click_status <- reactiveValues(show = FALSE, hex = hex_logo)
   
   observeEvent(input$hex_click, {
     click_status$show <- !click_status$show
+  })
+  
+  observeEvent(reset$x, {
+    click_status$show <- FALSE
   })
   
   output$hex <- renderImage({

@@ -22,6 +22,13 @@ source("modules/hex-module.R")
 
 
 
+
+# Functions ---------------------------------------------------------------
+
+source("functions/utils.R")
+
+
+
 # Global variables --------------------------------------------------------
 
 n_hex <- 10
