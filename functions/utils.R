@@ -4,10 +4,17 @@
 
 which_show <- function(l, indice = NULL) {
   res <- lapply(l, `[[`, "show")
+  res <- unlist(res)
+  if (all(!res)) {
+    return(NULL)
+  }
+  ts <- unlist(lapply(l[res], `[[`, "ts"), use.names = FALSE)
+  res <- names(l)[res]
+  res <- res[order(ts, decreasing = FALSE)]
   if (is.null(indice)) {
-    names(l)[unlist(res)]
+    res
   } else {
-    as_null(names(l)[unlist(res)][indice])
+    as_null(res[indice])
   }
 }
 
@@ -19,3 +26,7 @@ as_null <- function(x) {
   }
 }
 
+which_hex <- function(l, module) {
+  res <- lapply(module, function(x) l[[x]]$hex)
+  unlist(res, use.names = FALSE)
+}

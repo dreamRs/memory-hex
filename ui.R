@@ -19,6 +19,8 @@ fluidPage(
   tags$br(),
   tags$hr(),
   
+  verbatimTextOutput("test_res_show"),
+  
   fluidRow(
     column(
       width = 10, offset = 1,

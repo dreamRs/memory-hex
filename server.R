@@ -42,7 +42,19 @@ function(input, output, session) {
   })
   
   observeEvent(results_mods_parse$show3, {
-    reset$x <- Sys.time()
+    reset$x <- which_hex(
+      results_mods_parse$all,
+      c(results_mods_parse$show1, results_mods_parse$show2)
+    )
+    results_mods_parse$show1 <- NULL
+    results_mods_parse$show2 <- NULL
+    results_mods_parse$show1 <- results_mods_parse$show3
+    results_mods_parse$show3 <- NULL
+  })
+  
+  
+  output$test_res_show <- renderPrint({
+    c(results_mods_parse$show1, results_mods_parse$show2, results_mods_parse$show3)
   })
   
   output$test_res <- renderPrint({

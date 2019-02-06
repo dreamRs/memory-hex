@@ -19,14 +19,17 @@ hex_UI <- function(id) {
 
 hex <- function(input, output, session, hex_logo, reset = reactiveValues(x = NULL)) {
   
-  click_status <- reactiveValues(show = FALSE, hex = hex_logo)
+  click_status <- reactiveValues(show = FALSE, hex = hex_logo, ts = Sys.time())
   
   observeEvent(input$hex_click, {
     click_status$show <- !click_status$show
+    click_status$ts <- Sys.time()
   })
   
   observeEvent(reset$x, {
-    click_status$show <- FALSE
+    if (hex_logo %in% reset$x) {
+      click_status$show <- FALSE
+    }
   })
   
   output$hex <- renderImage({
