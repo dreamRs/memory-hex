@@ -19,6 +19,8 @@ fluidPage(
   tags$br(),
   tags$hr(),
   
+  time_UI("timer"),
+  
   verbatimTextOutput("test_res_show"),
   
   tags$div(

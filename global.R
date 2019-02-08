@@ -19,6 +19,7 @@ library("shinyWidgets")
 # Modules -----------------------------------------------------------------
 
 source("modules/hex-module.R")
+source("modules/time-module.R")
 
 
 
