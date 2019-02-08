@@ -11,12 +11,18 @@ time_UI <- function(id) {
   )
 }
 
-time <- function(input, output, session, start = reactiveValues(x = FALSE)) {
+time <- function(input, output, session, start = reactive(0)) {
   
   time_r <- reactiveVal(value = 0)
+  started <- reactiveVal(value = FALSE)
+  
+  observeEvent(start(), {
+    time_r(0)
+    started(TRUE)
+  }, ignoreInit = TRUE)
   
   observe({
-    if (start$x) {
+    if (started()) {
       invalidateLater(1000, session)
       isolate({
         newTime <- time_r() + 1
