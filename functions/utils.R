@@ -4,6 +4,9 @@
 
 which_show <- function(l, indice = NULL) {
   l <- filter_found(l)
+  if (length(l) == 0) {
+    return(NULL)
+  }
   res <- lapply(l, `[[`, "show")
   res <- unlist(res)
   if (all(!res)) {
@@ -22,6 +25,11 @@ which_show <- function(l, indice = NULL) {
 filter_found <- function(l) {
   found <- unlist(lapply(l, `[[`, "found"), use.names = FALSE)
   l[!found]
+}
+
+all_found <- function(l) {
+  found <- unlist(lapply(l, `[[`, "found"), use.names = FALSE)
+  all(found)
 }
 
 as_null <- function(x) {

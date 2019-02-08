@@ -20,7 +20,7 @@ library("shinyWidgets")
 
 source("modules/hex-module.R")
 source("modules/time-module.R")
-
+source("modules/welcome-module.R")
 
 
 
@@ -32,7 +32,7 @@ source("functions/utils.R")
 
 # Global variables --------------------------------------------------------
 
-n_hex <- 10
+n_hex <- 5
 
 
 

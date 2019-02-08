@@ -66,6 +66,22 @@ function(input, output, session) {
   })
   
   
+  observe({
+    allfound <- all_found(results_mods_parse$all)
+    if (isTRUE(allfound)) {
+      showModal(modalDialog(
+        tags$div(
+          style = "text-align: center;",
+          tags$h2("Well done !")
+        ),
+        footer = NULL,
+        size = "l",
+        easyClose = FALSE
+      ))
+    }
+  })
+  
+  
   output$test_res_show <- renderPrint({
     c(results_mods_parse$show1, results_mods_parse$show2, results_mods_parse$show3)
   })
