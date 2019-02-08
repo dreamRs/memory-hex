@@ -17,17 +17,25 @@ hex_UI <- function(id) {
   )
 }
 
-hex <- function(input, output, session, hex_logo, reset = reactiveValues(x = NULL)) {
+hex <- function(input, output, session, hex_logo, reset = reactiveValues(x = NULL), block = reactiveValues(x = NULL)) {
   
-  click_status <- reactiveValues(show = FALSE, hex = hex_logo, ts = Sys.time())
+  click_status <- reactiveValues(show = FALSE, hex = hex_logo, ts = Sys.time(), found = FALSE)
   
   observeEvent(input$hex_click, {
-    click_status$show <- !click_status$show
-    click_status$ts <- Sys.time()
+    if (!click_status$found) {
+      click_status$show <- !click_status$show
+      click_status$ts <- Sys.time()
+    }
+  })
+  
+  observeEvent(block$x, {
+    if (hex_logo %in% block$x) {
+      click_status$found <- TRUE
+    }
   })
   
   observeEvent(reset$x, {
-    if (hex_logo %in% reset$x) {
+    if (hex_logo %in% reset$x & !click_status$found) {
       click_status$show <- FALSE
     }
   })

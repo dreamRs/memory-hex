@@ -3,6 +3,7 @@
 # utiils ------------------------------------------------------------------
 
 which_show <- function(l, indice = NULL) {
+  l <- filter_found(l)
   res <- lapply(l, `[[`, "show")
   res <- unlist(res)
   if (all(!res)) {
@@ -16,6 +17,11 @@ which_show <- function(l, indice = NULL) {
   } else {
     as_null(res[indice])
   }
+}
+
+filter_found <- function(l) {
+  found <- unlist(lapply(l, `[[`, "found"), use.names = FALSE)
+  l[!found]
 }
 
 as_null <- function(x) {
