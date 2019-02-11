@@ -19,19 +19,19 @@ fluidPage(
   tags$br(),
   tags$hr(),
   
-  time_UI("timer"),
-  
-  verbatimTextOutput("test_res_show"),
+  # verbatimTextOutput("test_res_show"),
   
   tags$div(
-    style = "width: 80%; margin: auto;",
+    style = "width: 60%; margin: auto;",
+    time_UI("timer"),
+    tags$br(),
     lapply(
       X = seq_len(n_hex * 2),
       FUN = function(x) {
         hex_UI(id = paste0("module", x))
       }
-    ),
-    verbatimTextOutput("test_res")
+    )#,
+    # verbatimTextOutput("test_res")
   )
   
 )

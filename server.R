@@ -72,7 +72,9 @@ function(input, output, session) {
       showModal(modalDialog(
         tags$div(
           style = "text-align: center;",
-          tags$h2("Well done !")
+          tags$h2("Well done !"),
+          tags$h4("You've find all matching hex in"),
+          tags$h1(isolate(timer()), "seconds!")
         ),
         footer = NULL,
         size = "l",
