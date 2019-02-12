@@ -22,7 +22,7 @@ fluidPage(
   # verbatimTextOutput("test_res_show"),
   
   tags$div(
-    style = "width: 60%; margin: auto;",
+    style = "width: 650px; margin: auto;",
     time_UI("timer"),
     tags$br(),
     lapply(

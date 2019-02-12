@@ -32,7 +32,7 @@ source("functions/utils.R")
 
 # Global variables --------------------------------------------------------
 
-n_hex <- 8
+n_hex <- 10
 
 
 
