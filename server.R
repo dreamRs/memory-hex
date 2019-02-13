@@ -72,9 +72,19 @@ function(input, output, session) {
       showModal(modalDialog(
         tags$div(
           style = "text-align: center;",
-          tags$h2("Well done !"),
+          tags$h2(
+            tags$span(icon("trophy"), style = "color: #F7E32F;"),
+            "Well done !",
+            tags$span(icon("trophy"), style = "color: #F7E32F;")
+          ),
           tags$h4("You've find all matching hex in"),
-          tags$h1(isolate(timer()), "seconds!")
+          tags$h1(isolate(timer()), "seconds!"),
+          tags$br(), tags$br(),
+          actionButton(
+            inputId = "reload",
+            label = "Play again !",
+            style = "width: 100%;"
+          )
         ),
         footer = NULL,
         size = "l",
@@ -82,6 +92,11 @@ function(input, output, session) {
       ))
     }
   })
+  
+  
+  observeEvent(input$reload, {
+    session$reload()
+  }, ignoreInit = TRUE)
   
   
   output$test_res_show <- renderPrint({
