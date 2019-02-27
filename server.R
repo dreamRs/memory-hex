@@ -51,6 +51,16 @@ function(input, output, session) {
     hex2 <- which_hex(results_mods_parse$all, results_mods_parse$show2)
     if (identical(hex1, hex2)) {
       block$x <- hex1
+      showNotification(
+        ui = tags$div(
+          style = "font-size: 160%; font-weight: bold;",
+          sample(
+            x = c("Well done!", "Bravo!", "Great!", "Good job!", 
+                  "Amazing!", "That's a match!", "Hooray!"),
+            size = 1
+          )
+        ), type = "message"
+      )
     }
   })
   

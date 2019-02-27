@@ -11,13 +11,16 @@ library("shiny")
 
 fluidPage(
   
+  tags$head(
+    tags$link(href="styles.css", rel="stylesheet", type="text/css")
+  ),
+  
   tags$div(
-    style = "text-align: center; width: 100%; margin-top: 60px;",
-    tags$h2("Hex memory game"),
+    class = "title-app",
+    tags$h1("Hex memory game"),
     tags$h4("Find mathing hex!")
   ),
   tags$br(),
-  tags$hr(),
   
   # verbatimTextOutput("test_res_show"),
   

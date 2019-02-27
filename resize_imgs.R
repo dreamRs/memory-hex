@@ -11,3 +11,9 @@ for (i in imgs) {
   img <- image_scale(img, "120x139")
   image_write(image = img, path = i)
 }
+
+
+img <- image_read("www/rstats-hex.png")
+img <- image_scale(img, "120x139")
+image_write(image = img, path = "www/rstats-hex.png")
+

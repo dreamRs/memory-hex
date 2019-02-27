@@ -5,9 +5,9 @@
 time_UI <- function(id) {
   ns <- NS(id)
   tags$div(
-    style = "width: 100%; text-align: right;",
+    style = "width: 100%; text-align: center;",
     "Time elapsed:",
-    uiOutput(outputId = ns("timer_ui"), style = "font-size: 180%; font-weight: bold;", inline = TRUE)
+    uiOutput(outputId = ns("timer_ui"), style = "font-size: 200%; font-weight: bold;", inline = TRUE)
   )
 }
 
