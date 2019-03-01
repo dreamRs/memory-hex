@@ -87,7 +87,7 @@ function(input, output, session) {
             "Well done !",
             tags$span(icon("trophy"), style = "color: #F7E32F;")
           ),
-          tags$h4("You've find all matching hex in"),
+          tags$h4("You've found all matching hex in"),
           tags$h1(isolate(timer()), "seconds!"),
           tags$br(), tags$br(),
           tags$a(
