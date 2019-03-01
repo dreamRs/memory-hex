@@ -90,6 +90,12 @@ function(input, output, session) {
           tags$h4("You've find all matching hex in"),
           tags$h1(isolate(timer()), "seconds!"),
           tags$br(), tags$br(),
+          tags$a(
+            href = glue(shareurl, time = isolate(timer())),
+            icon("twitter"), "Tweet your score !", 
+            class = "btn btn-info btn-lg"
+          ),
+          tags$br(), tags$br(),
           actionButton(
             inputId = "reload",
             label = "Play again !",
@@ -97,7 +103,6 @@ function(input, output, session) {
           )
         ),
         footer = NULL,
-        size = "l",
         easyClose = FALSE
       ))
     }
