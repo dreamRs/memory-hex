@@ -19,7 +19,7 @@ fluidPage(
   tags$div(
     class = "title-app",
     tags$h1("Hex memory game"),
-    tags$h4("Find mathing hex!")
+    tags$h4("Find matching hex!")
   ),
   tags$br(),
   
