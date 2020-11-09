@@ -13,7 +13,8 @@ fluidPage(
   
   tags$head(
     tags$link(href="styles.css", rel="stylesheet", type="text/css"),
-    tags$script(src = "http://platform.twitter.com/widgets.js")
+    tags$script(src = "http://platform.twitter.com/widgets.js"),
+    includeHTML(path = "www/google-analytics.html")
   ),
   
   tags$div(
