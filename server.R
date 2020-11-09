@@ -96,6 +96,11 @@ function(input, output, session) {
             class = "btn btn-info btn-lg"
           ),
           tags$br(), tags$br(),
+          
+          tags$p("This app is our submission for the",
+                 tags$a(href = "https://community.rstudio.com/t/shiny-contest-submission-hex-memory-game/25336", "Shiny contest !")),
+          
+          tags$br(), tags$br(),
           actionButton(
             inputId = "reload",
             label = "Play again !",
@@ -113,14 +118,6 @@ function(input, output, session) {
     session$reload()
   }, ignoreInit = TRUE)
   
-  
-  output$test_res_show <- renderPrint({
-    c(results_mods_parse$show1, results_mods_parse$show2, results_mods_parse$show3)
-  })
-  
-  output$test_res <- renderPrint({
-    results_mods_parse$all
-  })
 
 
   
